@@ -1,4 +1,3 @@
-import AuthForm from "@/components/auth-form";
 import Hero from "@/components/hero";
 
 export default function Home() {
