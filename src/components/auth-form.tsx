@@ -22,7 +22,7 @@ export default function AuthForm(
     { variant }: AuthFormProps
 ) {
     return (
-        <Card className="mx-auto max-w-sm w-96 border-neutral-800 bg-neutral-950 text-white">
+        <Card className="mx-auto max-w-sm sm:w-96 border-neutral-800 bg-neutral-950 text-white">
             <CardHeader>
                 <CardTitle className="text-2xl font-semibold tracking-tight">
                     {variant === "login" ? "Login" : "Create new account"}
