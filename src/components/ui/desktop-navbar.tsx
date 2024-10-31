@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { auth, signOut, signIn } from "@/auth";
+import { auth, signOut } from "@/auth";
 import { BiSolidDoorOpen } from "react-icons/bi";
 import { navItems } from "@/data/navItems";
 import Logo from "./logo";
