@@ -1,5 +1,3 @@
-"use client"
-
 import { Button } from "@/components/ui/button"
 import {
     Card,
@@ -10,8 +8,7 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { FcGoogle } from "react-icons/fc"
-import { LuGithub } from "react-icons/lu";
+import SignInButton from "./signin-button"
 
 type AuthFormProps = {
 
@@ -33,15 +30,9 @@ export default function AuthForm(
             </CardHeader>
             <CardContent>
                 <div className="grid gap-4">
-                    <div className="grid grid-cols-2 gap-4">
-                        <Button variant="outline" className="border-neutral-800 bg-neutral-950 text-white hover:bg-neutral-900">
-                            <LuGithub className="mr-2 h-4 w-4" />
-                            GitHub
-                        </Button>
-                        <Button variant="outline" className="border-neutral-800 bg-neutral-950 text-white hover:bg-neutral-900">
-                            <FcGoogle className="mr-2 h-4 w-4" />
-                            Google
-                        </Button>
+                    <div className="flex flex-row justify-between">
+                        <SignInButton method="github" />
+                        <SignInButton method="google" />
                     </div>
                     <div className="relative">
                         <div className="absolute inset-0 flex items-center">

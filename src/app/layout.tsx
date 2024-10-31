@@ -16,16 +16,16 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
       <body
         className={``}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <SessionProvider session={session}>
+        <SessionProvider session={session}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
             {children}
-          </SessionProvider>
-        </ThemeProvider>
+          </ThemeProvider>
+        </SessionProvider>
       </body>
     </html>
   );
