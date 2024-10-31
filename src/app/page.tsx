@@ -7,10 +7,6 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Hero />
-        <Hero />
-        <Hero />
-        <Hero />
       </main >
     </>
   );

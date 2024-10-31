@@ -1,4 +1,5 @@
 import AuthForm from "@/components/auth-form";
+import ThemeToggle from "@/components/ui/theme-toggle";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,6 +13,10 @@ export default function LoginPage() {
                     <span className="text-neutral-400 text-center block mt-4">
                         Already have an account? <Link href="/login" className="text-white underline underline-offset-2">Login</Link>
                     </span>
+
+                    <div className="absolute left-4 bottom-4">
+                        <ThemeToggle />
+                    </div>
                 </section>
                 <section className="hidden w-1/2 bg-neutral-900 lg:block">
                     <div className="flex h-full items-center justify-center">

@@ -6,6 +6,7 @@ import { auth, signOut } from "@/auth";
 import { BiSolidDoorOpen } from "react-icons/bi";
 import { navItems } from "@/data/navItems";
 import Logo from "./logo";
+import ThemeToggle from "./theme-toggle";
 
 
 export default async function DesktopNav() {
@@ -25,17 +26,20 @@ export default async function DesktopNav() {
                         </li>
                     </Button>
                 ))}
+                <li className="mr-2">
+                    <ThemeToggle />
+                </li>
                 <li className="flex gap-x-2">
                     {user ? (
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <Avatar className="cursor-pointer size-9">
                                     <AvatarImage src={user.image || "/noavatar.png"} />
-                                    <AvatarFallback>EU</AvatarFallback>
+                                    <AvatarFallback>{user?.name?.at(0)}</AvatarFallback>
                                 </Avatar>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end">
-                                <DropdownMenuLabel>Hi {user?.name || user?.email}</DropdownMenuLabel>
+                                <DropdownMenuLabel>Hi, {user?.name || user?.email}</DropdownMenuLabel>
 
                                 <DropdownMenuSeparator />
                                 <DropdownMenuItem>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger, } from '@/components/ui/sheet';
 import { navItems } from "@/data/navItems";
 import { CgMenuRight } from "react-icons/cg";
 import Link from "next/link";
@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from './avatar';
 import { BiSolidDoorOpen } from "react-icons/bi";
 import { useSession, signOut } from 'next-auth/react';
+import ThemeToggle from './theme-toggle';
 
 export default function MobileNav() {
     const { data: session } = useSession()
@@ -21,7 +22,7 @@ export default function MobileNav() {
                 <SheetTrigger asChild>
                     <CgMenuRight size={24} />
                 </SheetTrigger>
-                <SheetContent side="right" className="bg-black text-white">
+                <SheetContent side="right" className="dark:bg-black dark:text-white">
                     <SheetHeader>
                         <SheetTitle className="text-white mb-4">GoTiny</SheetTitle>
                     </SheetHeader>
@@ -38,13 +39,16 @@ export default function MobileNav() {
                             {user ? (
                                 <DropdownMenu>
                                     <DropdownMenuTrigger asChild>
-                                        <Avatar className="cursor-pointer size-9">
-                                            <AvatarImage src={user.image || "/noavatar.png"} />
-                                            <AvatarFallback>EU</AvatarFallback>
-                                        </Avatar>
+                                        <div className='flex flex-row gap-3 items-center cursor-pointer '>
+                                            <Avatar className="size-9">
+                                                <AvatarImage src={user.image || "/noavatar.png"} />
+                                                <AvatarFallback>{user?.name?.at(0)}</AvatarFallback>
+                                            </Avatar>
+                                            <span className="ml-2">{user?.name || user?.email}</span>
+                                        </div>
                                     </DropdownMenuTrigger>
-                                    <DropdownMenuContent align="end">
-                                        <DropdownMenuLabel>Hi {user?.name || user?.email}</DropdownMenuLabel>
+                                    <DropdownMenuContent align="center">
+                                        <DropdownMenuLabel>Hi, {user?.name || user?.email}</DropdownMenuLabel>
 
                                         <DropdownMenuSeparator />
                                         <DropdownMenuItem>
@@ -71,6 +75,9 @@ export default function MobileNav() {
                             )}
                         </div>
                     </div>
+                    <SheetFooter className='absolute bottom-4'>
+                        <ThemeToggle />
+                    </SheetFooter>
                 </SheetContent >
             </Sheet>
 
