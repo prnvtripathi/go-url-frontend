@@ -13,7 +13,10 @@ const SignInButton = async ({ method }: SignInButtonProps) => {
         <form
             action={async () => {
                 "use server"
-                await signIn(method, { callbackUrl: "/" });
+                await signIn(method, {
+                    redirect: true,
+                    redirectTo: "/",
+                });
             }}
         >
             <Button
