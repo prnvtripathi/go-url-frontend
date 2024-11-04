@@ -35,7 +35,7 @@ export default async function DesktopNav() {
                             <DropdownMenuTrigger asChild>
                                 <Avatar className="cursor-pointer size-9">
                                     <AvatarImage src={user.image || "/noavatar.png"} />
-                                    <AvatarFallback>{user?.name?.at(0)}</AvatarFallback>
+                                    <AvatarFallback>{user?.name?.at(0)?.toUpperCase()}</AvatarFallback>
                                 </Avatar>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end">

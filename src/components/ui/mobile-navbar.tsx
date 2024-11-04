@@ -42,7 +42,7 @@ export default function MobileNav() {
                                         <div className='flex flex-row gap-3 items-center cursor-pointer '>
                                             <Avatar className="size-9">
                                                 <AvatarImage src={user.image || "/noavatar.png"} />
-                                                <AvatarFallback>{user?.name?.at(0)}</AvatarFallback>
+                                                <AvatarFallback>{user?.name?.at(0)?.toUpperCase()}</AvatarFallback>
                                             </Avatar>
                                             <span className="ml-2">{user?.name || user?.email}</span>
                                         </div>

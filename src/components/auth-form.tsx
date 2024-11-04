@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button"
 import {
     Card,
     CardContent,
@@ -6,18 +5,14 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import SignInButton from "./signin-button"
+import CredentialsForm from "./credentials-form"
 
 type AuthFormProps = {
-
     variant: "login" | "register";
-
 };
-export default function AuthForm(
-    { variant }: AuthFormProps
-) {
+
+export default function AuthForm({ variant }: AuthFormProps) {
     return (
         <Card className="mx-auto max-w-sm sm:w-96 border-neutral-800 bg-neutral-950 text-white">
             <CardHeader>
@@ -25,7 +20,9 @@ export default function AuthForm(
                     {variant === "login" ? "Login" : "Create new account"}
                 </CardTitle>
                 <CardDescription className="text-neutral-400">
-                    {variant === "login" ? "Welcome back! Please login to your account." : "Enter your email below to create your account"}
+                    {variant === "login"
+                        ? "Welcome back! Please login to your account."
+                        : "Enter your email below to create your account"}
                 </CardDescription>
             </CardHeader>
             <CardContent>
@@ -39,34 +36,12 @@ export default function AuthForm(
                             <span className="w-full border-t border-neutral-800" />
                         </div>
                         <div className="relative flex justify-center text-xs uppercase">
-                            <span className="bg-neutral-950 px-2 text-neutral-400">Or continue with</span>
+                            <span className="bg-neutral-950 px-2 text-neutral-400">
+                                Or continue with
+                            </span>
                         </div>
                     </div>
-                    <div className="grid gap-2">
-                        <Label htmlFor="email" className="text-white">
-                            Email
-                        </Label>
-                        <Input
-                            id="email"
-                            type="email"
-                            placeholder="email@example.com"
-                            className="border-neutral-800 bg-neutral-950 text-white placeholder:text-neutral-400"
-                        />
-                    </div>
-                    <div className="grid gap-2">
-                        <Label htmlFor="password" className="text-white">
-                            Password
-                        </Label>
-                        <Input
-                            id="password"
-                            type="password"
-                            placeholder="********"
-                            className="border-neutral-800 bg-neutral-950 text-white placeholder:text-neutral-400"
-                        />
-                    </div>
-                    <Button className="w-full">
-                        Create account
-                    </Button>
+                    <CredentialsForm variant={variant} />
                 </div>
             </CardContent>
         </Card>
