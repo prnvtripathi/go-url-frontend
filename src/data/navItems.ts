@@ -11,4 +11,10 @@ export const navItems = [
         link: "/short",
         tooltiptext: "Shorten URL",
     },
+    {
+        id: 3,
+        name: "Dashboard",
+        link: "/dashboard/home",
+        tooltiptext: "Dashboard",
+    }
 ];

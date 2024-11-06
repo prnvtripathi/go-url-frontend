@@ -52,7 +52,7 @@ export default function MobileNav() {
 
                                         <DropdownMenuSeparator />
                                         <DropdownMenuItem>
-                                            <Button className='' variant='outline' onClick={() => signOut()}>
+                                            <Button className='' variant='outline' onClick={() => signOut({ redirect: true, redirectTo: "/login" })}>
                                                 <BiSolidDoorOpen size={20} />
                                                 <span className="ml-2">Logout</span>
                                             </Button>

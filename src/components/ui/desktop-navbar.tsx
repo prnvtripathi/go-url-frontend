@@ -46,7 +46,10 @@ export default async function DesktopNav() {
                                     <form className="w-full"
                                         action={async () => {
                                             "use server";
-                                            await signOut();
+                                            await signOut({
+                                                redirectTo: "/login",
+                                                redirect: true,
+                                            });
                                         }}
                                     >
                                         <button className="w-full text-red-500 flex items-center gap-2 font-bold"><BiSolidDoorOpen size={20} />Logout</button>

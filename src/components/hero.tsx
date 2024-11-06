@@ -28,7 +28,7 @@ export default function Hero() {
                             </div>
 
                             <Button variant="default" className="font-sans" asChild>
-                                <Link href="/">
+                                <Link href="/dashboard">
                                     <LinkIcon />Shrink My Link
                                 </Link>
                             </Button>

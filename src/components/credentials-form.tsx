@@ -36,7 +36,7 @@ export default function CredentialsForm({ variant }: CredentialsFormProps) {
                     toast.success("Logged in successfully");
                     // Add a small delay to allow the toast to show
                     setTimeout(() => {
-                        router.push("/");
+                        router.push("/dashboard");
                         router.refresh(); // Refresh to update authentication state
                     }, 1000);
                 } else {

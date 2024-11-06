@@ -10,8 +10,9 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { CalendarIcon } from "lucide-react"
 import { formatRFC3339, format } from "date-fns"
 import { toast } from 'sonner'
+import { useRouter } from 'next/navigation'
 
-export default function Component() {
+export default function UrlShortenerForm({ isDialog }: { isDialog?: boolean }) {
     const [url, setUrl] = useState('')
     const [shortCode, setShortCode] = useState('')
     const [isCustomCode, setIsCustomCode] = useState(false)
@@ -20,6 +21,8 @@ export default function Component() {
     const [customDate, setCustomDate] = useState<Date | undefined>(undefined)
     const [isCustomExpiry, setIsCustomExpiry] = useState(false)
     let expiryDate: string | undefined
+
+    const router = useRouter()
 
     const setExpiryDate = (value: string) => {
         switch (value) {
@@ -63,14 +66,18 @@ export default function Component() {
 
         if (data.success) {
             toast.success('Short URL created successfully')
+            router.push(`/dashboard`)
         } else {
             toast.error(data.message)
         }
     }
 
     return (
-        <div className="max-w-md mx-auto mt-10 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Create Short URL</h2>
+        <div className="mt-10 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+            {
+                !isDialog &&
+                <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Create Short URL</h2>
+            }
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
                     <Label htmlFor="url" className="text-gray-700 dark:text-gray-200">URL*</Label>
