@@ -40,6 +40,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth(() => {
   const pool = new Pool({ connectionString: process.env.DATABASE_URL });
   return {
     adapter: PostgresAdapter(pool),
+    trustHost: true,
     providers: [
       GitHub,
       Google,

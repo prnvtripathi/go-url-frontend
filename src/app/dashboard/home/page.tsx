@@ -57,6 +57,7 @@ export default function Dashboard() {
             setUrls(data?.urls)
         } catch (error) {
             console.error(error)
+            toast.error("Failed to fetch URLs")
         } finally {
             setLoading(false)
         }
